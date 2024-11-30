@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pr-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subtração</title>
+
+    <style>
+        body {
+            display: flex;
+            height: 90vh;
+            justify-content: center;
+            align-items: center;
+            background: black url('imagens/fundo-subtracao.jpg') center center no-repeat;
+            background-size: cover;
+        }
+
+        div>header>h1 {
+            color: white;
+            text-shadow: 2px 0px 3px black;
+        }
+
+        div#container {
+            background-image: linear-gradient(to right, #0f2f28da, #06846bda);
+            text-align: center;
+            display: inline-block;
+            height: 200px;
+            box-shadow: 2px 2px 3px black;
+        }
+
+        main>div>#campo1,
+        #campo2 {
+            width: 20%;
+            box-shadow: 2px 2px 3px black;
+            text-align: center;
+        }
+
+        div#exit {
+            display: flex;
+            justify-content: center;
+            margin: 5px;
+        }
+
+        div>input#calcular {
+            box-shadow: 2px 2px 3px black;
+            margin-right: 4px;
+            width: 80px;
+        }
+
+        div>input#calcular:hover {
+            background-color: #29695B;
+            border-radius: 4px;
+            color: white;
+        }
+
+        div>output#saida {
+            width: 80px;
+            background-color: rgb(235, 235, 235);
+            margin-left: 15px;
+            box-shadow: 2px 2px 3px black;
+            font-size: 1.2em;
+            align-content: center;
+        }
+
+        strong {
+            font-size: 2em;
+        }
+        #retornar{
+            padding: 2px;
+            width: 81px;
+        }
+        #retornar:hover{
+            cursor: pointer;
+            background-color: green;
+            color: white;
+        }
+        #limpar{
+            padding: 2px;
+            width: 81px;
+            margin-left:15px;
+        }
+        #limpar:hover{
+            cursor: pointer;
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <header>
+            <h1>App Subtração</h1>
+        </header>
+        <main>
+            <div id="campos">
+                <input type="text" name="" id="campo1" autocomplete="off">
+                <strong>-</strong>
+                <input type="text" name="" id="campo2" autocomplete="off">
+            </div>
+            <div id="exit">
+                <input id="calcular" type="submit" value="Calcular">
+                <output id="saida">0</output>
+            </div>
+            <div id="bottom">
+                <button id="retornar" type="submit">Retornar</button>
+                <button id="limpar" type="submit">Limpar</button>
+            </div>
+        </main>
+    </div>
+</body>
+<script>
+    var campo1 = document.querySelector('#campo1');
+    var campo2 = document.querySelector('#campo2');
+    var saida = document.querySelector('#saida')
+
+    var calcular = document.querySelector('#calcular');
+    var retornar = document.querySelector('#retornar');
+    var limpar = document.querySelector('#limpar');
+
+    calcular.addEventListener('click', subtrair);
+    retornar.addEventListener('click', back);
+    limpar.addEventListener('click', clear);
+
+    function subtrair() {
+        var num1 = Number(campo1.value);
+        var num2 = Number(campo2.value);
+        var resultado = num1 - num2;
+        saida.innerHTML = resultado;
+    }
+    function back(){
+        window.location = 'index.html';
+    }
+    function clear(){
+        document.querySelector('#campo1').value = '';
+        document.querySelector('#campo2').value = '';
+        document.querySelector('#saida').value = '0'
+    }
+</script>
+
+</html>
